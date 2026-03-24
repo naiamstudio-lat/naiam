@@ -87,3 +87,4 @@ export async function GET() {
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-03-24 | Replica landing page Navan Studio: Navbar, Hero con SVG blobs, AboutSection, globals.css con paleta teal, layout.tsx con Inter font |
+| 2026-03-24 | Refinamiento Hero: ondas orgánicas suaves tipo cloud, badge pill centrado, teal #1a8a7d, título púrpura #3a1a5e, navbar limpio sin underline, fondo #eef6f6 |
