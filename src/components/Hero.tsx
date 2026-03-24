@@ -4,23 +4,53 @@ export default function Hero() {
       style={{
         position: "relative",
         overflow: "hidden",
-        paddingTop: 60,
+        paddingTop: 56,
         paddingBottom: 0,
         textAlign: "center",
-        backgroundColor: "#f0f8f8",
+        backgroundColor: "#eef6f6",
       }}
     >
-      {/* ── Background organic wave shapes ── */}
+      {/* ── Background organic shapes ── */}
 
-      {/* Left side cloud-wave */}
+      {/* Left organic cloud – large, soft, rising from bottom-left */}
       <svg
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "35%",
+          bottom: 0,
+          left: -40,
+          width: "42%",
           height: "100%",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+        viewBox="0 0 600 800"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Outer soft cloud */}
+        <path
+          d="M-20,800 C-20,800 20,620 60,520 C120,380 30,320 80,220 C130,120 180,100 160,40 C140,-20 100,0 60,0 L-60,0 L-60,800 Z"
+          fill="#d6edea"
+          opacity="0.7"
+        />
+        {/* Inner slightly darker layer */}
+        <path
+          d="M-60,800 C-60,800 0,660 30,560 C70,430 -10,370 30,270 C70,170 120,150 100,80 C80,10 40,0 0,0 L-60,0 L-60,800 Z"
+          fill="#c3e4e0"
+          opacity="0.55"
+        />
+      </svg>
+
+      {/* Right organic cloud – smaller, from top-right */}
+      <svg
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: -20,
+          right: -30,
+          width: "32%",
+          height: "90%",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -28,71 +58,43 @@ export default function Hero() {
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* outer light wave */}
         <path
-          d="M0,0 L0,700 C30,680 80,640 100,580 C130,500 70,440 90,360 C110,280 160,260 140,180 C120,100 80,60 120,0 Z"
-          fill="#daf0ee"
+          d="M560,0 C560,0 500,80 480,180 C450,320 530,370 490,480 C450,590 420,640 460,700 L560,700 L560,0 Z"
+          fill="#d6edea"
+          opacity="0.65"
         />
-        {/* inner darker wave */}
         <path
-          d="M0,0 L0,700 C20,660 60,600 70,530 C85,450 40,400 55,320 C70,240 110,220 95,150 C80,80 50,40 80,0 Z"
-          fill="#c8eae6"
-          opacity="0.6"
+          d="M560,0 C560,0 520,60 510,150 C495,280 550,340 520,440 C490,540 470,600 500,700 L560,700 L560,0 Z"
+          fill="#c3e4e0"
+          opacity="0.45"
         />
       </svg>
 
-      {/* Right side cloud-wave */}
+      {/* Bottom wave – gentle hill across full width */}
       <svg
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: 0,
-          right: 0,
-          width: "30%",
-          height: "100%",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-        viewBox="0 0 400 700"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M400,0 L400,700 C370,660 330,600 310,520 C290,440 340,380 320,300 C300,220 260,200 280,120 C300,40 350,20 320,0 Z"
-          fill="#daf0ee"
-        />
-        <path
-          d="M400,0 L400,700 C380,640 350,560 340,480 C325,400 370,350 355,280 C340,210 300,190 320,110 C340,30 370,10 350,0 Z"
-          fill="#c8eae6"
-          opacity="0.5"
-        />
-      </svg>
-
-      {/* Bottom wave spanning full width */}
-      <svg
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: 0,
+          bottom: 44,
           left: 0,
           width: "100%",
-          height: 160,
+          height: 120,
           pointerEvents: "none",
           zIndex: 0,
         }}
-        viewBox="0 0 1440 160"
+        viewBox="0 0 1440 120"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0,120 C180,60 360,30 540,50 C720,70 900,120 1080,100 C1260,80 1380,40 1440,60 L1440,160 L0,160 Z"
-          fill="#d5eeec"
-          opacity="0.55"
+          d="M0,100 C240,40 480,20 720,50 C960,80 1200,100 1440,60 L1440,120 L0,120 Z"
+          fill="#d3ebe8"
+          opacity="0.5"
         />
         <path
-          d="M0,140 C200,90 400,70 600,90 C800,110 1000,140 1200,120 C1350,105 1420,80 1440,90 L1440,160 L0,160 Z"
-          fill="#c8eae6"
-          opacity="0.4"
+          d="M0,110 C300,55 600,40 900,70 C1100,90 1300,100 1440,80 L1440,120 L0,120 Z"
+          fill="#c5e3df"
+          opacity="0.35"
         />
       </svg>
 
@@ -101,32 +103,34 @@ export default function Hero() {
         style={{
           position: "relative",
           zIndex: 1,
-          maxWidth: 780,
+          maxWidth: 760,
           margin: "0 auto",
-          padding: "0 32px 48px",
+          padding: "0 32px 52px",
         }}
       >
         <h1
           style={{
-            fontSize: "clamp(2rem, 4.5vw, 3rem)",
+            fontSize: "clamp(2rem, 4.8vw, 3.1rem)",
             fontWeight: 800,
-            lineHeight: 1.18,
-            color: "#2d1a5e",
-            marginBottom: 28,
-            letterSpacing: "-0.02em",
+            lineHeight: 1.16,
+            color: "#3a1a5e",
+            marginBottom: 26,
+            letterSpacing: "-0.015em",
           }}
         >
-          Validamos ideas de producto antes de que inviertas tiempo y dinero en algo que el mercado no necesita.
+          Validamos ideas de producto antes de
+          que inviertas tiempo y dinero en algo
+          que el mercado no necesita.
         </h1>
 
         <p
           style={{
-            fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)",
-            color: "#3b3b3b",
+            fontSize: "clamp(0.95rem, 1.7vw, 1.08rem)",
+            color: "#2a2a2a",
             lineHeight: 1.6,
             fontWeight: 600,
-            maxWidth: 600,
-            margin: "0 auto 44px",
+            maxWidth: 580,
+            margin: "0 auto 42px",
           }}
         >
           Acompañamos a emprendedores y startups en sus primeros pasos:
@@ -140,23 +144,23 @@ export default function Hero() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 16,
+            gap: 14,
             flexWrap: "wrap",
-            marginBottom: 48,
+            marginBottom: 0,
           }}
         >
           <a
             href="#contacto"
             style={{
-              backgroundColor: "#2cb5a0",
+              backgroundColor: "#1a8a7d",
               color: "#fff",
-              padding: "14px 34px",
+              padding: "13px 32px",
               borderRadius: 50,
               fontSize: 15,
               fontWeight: 600,
               textDecoration: "none",
-              boxShadow: "0 2px 12px rgba(44,181,160,0.25)",
               display: "inline-block",
+              letterSpacing: "0.01em",
             }}
           >
             Hablar con nosotros
@@ -165,14 +169,15 @@ export default function Hero() {
             href="#como-trabajamos"
             style={{
               backgroundColor: "transparent",
-              color: "#2cb5a0",
-              padding: "13px 30px",
+              color: "#1a8a7d",
+              padding: "12px 28px",
               borderRadius: 50,
               fontSize: 15,
               fontWeight: 500,
               textDecoration: "none",
-              border: "1.5px solid #b8d8d4",
+              border: "1.5px solid #b3cfc9",
               display: "inline-block",
+              letterSpacing: "0.01em",
             }}
           >
             Ver cómo trabajamos
@@ -180,50 +185,57 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Badge ribbon at bottom of hero ── */}
+      {/* ── Badge pill – centrado, no full width ── */}
       <div
         style={{
           position: "relative",
           zIndex: 1,
-          backgroundColor: "rgba(255,255,255,0.55)",
-          borderTop: "1px solid rgba(44,181,160,0.15)",
-          borderBottom: "1px solid rgba(44,181,160,0.15)",
-          backdropFilter: "blur(8px)",
-          padding: "14px 32px",
+          padding: "16px 32px",
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
-          gap: 10,
         }}
       >
-        {/* Person / check icon */}
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="9" cy="6" r="3.5" stroke="#5a9e94" strokeWidth="1.4" />
-          <path
-            d="M2.5 16C2.5 13 5 10.5 9 10.5C13 10.5 15.5 13 15.5 16"
-            stroke="#5a9e94"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-          />
-        </svg>
-        <span
+        <div
           style={{
-            fontSize: 13.5,
-            color: "#4a7a72",
-            fontWeight: 500,
-            letterSpacing: "0.01em",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 10,
+            backgroundColor: "rgba(255,255,255,0.5)",
+            border: "1px solid #c8ddd9",
+            borderRadius: 50,
+            padding: "10px 28px",
+            backdropFilter: "blur(6px)",
           }}
         >
-          Experiencia en desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación
-          de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y
-          posicionamiento
-        </span>
+          {/* Person icon */}
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="9" cy="6" r="3.2" stroke="#6aa89e" strokeWidth="1.3" />
+            <path
+              d="M3 16C3 13.2 5.2 10.8 9 10.8C12.8 10.8 15 13.2 15 16"
+              stroke="#6aa89e"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+            />
+          </svg>
+          <span
+            style={{
+              fontSize: 13,
+              color: "#5a8a82",
+              fontWeight: 500,
+              letterSpacing: "0.005em",
+            }}
+          >
+            Experiencia en desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación
+            de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y
+            posicionamiento
+          </span>
+        </div>
       </div>
     </section>
   );

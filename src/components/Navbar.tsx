@@ -14,66 +14,74 @@ export default function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        backgroundColor: "rgba(240, 248, 248, 0.92)",
-        backdropFilter: "blur(8px)",
-        borderBottom: "1px solid rgba(44,181,160,0.12)",
+        backgroundColor: "rgba(238,246,246,0.95)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(44,181,160,0.08)",
       }}
     >
       <div
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 32px",
-          height: 68,
+          padding: "0 36px",
+          height: 64,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
         {/* Logo */}
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          {/* SVG logo – stylised wave/shell similar to the image */}
-          <svg width="46" height="48" viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a
+          href="#"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            textDecoration: "none",
+          }}
+        >
+          {/* SVG logo – stylised leaf/wave */}
+          <svg
+            width="40"
+            height="42"
+            viewBox="0 0 40 42"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
-              d="M23 4C23 4 8 10 8 24C8 34 15 42 23 44C31 42 38 34 38 24C38 10 23 4 23 4Z"
-              fill="#2cb5a0"
-              opacity="0.18"
+              d="M20 3C20 3 7 9 7 21C7 30 13 37 20 39C27 37 33 30 33 21C33 9 20 3 20 3Z"
+              fill="#1a8a7d"
+              opacity="0.15"
             />
             <path
-              d="M23 8C23 8 30 13 32 22C34 31 29 39 23 42"
-              stroke="#2cb5a0"
-              strokeWidth="2.5"
+              d="M20 7C20 7 26 11 28 19C30 27 25 34 20 37"
+              stroke="#1a8a7d"
+              strokeWidth="2.2"
               strokeLinecap="round"
               fill="none"
             />
             <path
-              d="M23 8C23 8 16 13 14 22C12 31 17 39 23 42"
-              stroke="#1a2340"
-              strokeWidth="2"
+              d="M20 7C20 7 14 11 12 19C10 27 15 34 20 37"
+              stroke="#2a3a5c"
+              strokeWidth="1.8"
               strokeLinecap="round"
               fill="none"
-              opacity="0.6"
+              opacity="0.5"
             />
-            <path
-              d="M20 18 Q23 14 26 18 Q23 22 20 18Z"
-              fill="#2cb5a0"
-              opacity="0.7"
-            />
+            <ellipse cx="20" cy="17" rx="2.5" ry="2" fill="#1a8a7d" opacity="0.6" />
           </svg>
-          <div>
-            <div
-              style={{
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: "0.12em",
-                color: "#1a2340",
-                textTransform: "uppercase",
-                lineHeight: 1.1,
-              }}
-            >
-              NAVAN STUDIO
-            </div>
-          </div>
+          <span
+            style={{
+              fontSize: 11.5,
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              color: "#2a3a5c",
+              textTransform: "uppercase",
+              lineHeight: 1.1,
+            }}
+          >
+            NAVAN STUDIO
+          </span>
         </a>
 
         {/* Nav links */}
@@ -81,7 +89,7 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 28,
+            gap: 30,
             listStyle: "none",
           }}
         >
@@ -90,14 +98,12 @@ export default function Navbar() {
               <a
                 href={link.href}
                 style={{
-                  fontSize: 14.5,
+                  fontSize: 14,
                   fontWeight: link.active ? 600 : 400,
-                  color: link.active ? "#1a2340" : "#3b4a6b",
-                  textDecoration: link.active ? "underline" : "none",
-                  textDecorationColor: "#2cb5a0",
-                  textUnderlineOffset: 4,
-                  textDecorationThickness: 2,
+                  color: "#2a3a5c",
+                  textDecoration: "none",
                   transition: "color 0.2s",
+                  opacity: link.active ? 1 : 0.75,
                 }}
               >
                 {link.label}
@@ -110,16 +116,15 @@ export default function Navbar() {
         <a
           href="#contacto"
           style={{
-            backgroundColor: "#2cb5a0",
+            backgroundColor: "#1a8a7d",
             color: "#fff",
-            padding: "10px 22px",
+            padding: "9px 22px",
             borderRadius: 50,
-            fontSize: 14.5,
+            fontSize: 14,
             fontWeight: 600,
             textDecoration: "none",
             whiteSpace: "nowrap",
-            transition: "background-color 0.2s",
-            boxShadow: "0 2px 12px rgba(44,181,160,0.25)",
+            letterSpacing: "0.01em",
           }}
         >
           Hablar con nosotros
