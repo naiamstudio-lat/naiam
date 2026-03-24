@@ -14,6 +14,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] Replica landing page Navan Studio: Navbar sticky con logo SVG, links de navegación y botón CTA teal; Hero con formas orgánicas SVG de fondo, título bold grande, subtítulo, dos botones CTA y badge de experiencia; sección "No somos una consultora tradicional"; fuente Inter, paleta teal (#2cb5a0) y azul oscuro (#1a2340)
 
 ## Current Structure
 
@@ -85,3 +86,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-03-24 | Replica landing page Navan Studio: Navbar, Hero con SVG blobs, AboutSection, globals.css con paleta teal, layout.tsx con Inter font |
