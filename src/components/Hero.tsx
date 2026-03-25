@@ -231,9 +231,7 @@ export default function Hero() {
               letterSpacing: "0.005em",
             }}
           >
-            Experiencia en desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación
-            de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y
-            posicionamiento
+            Desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y posicionamiento
           </span>
         </div>
       </div>

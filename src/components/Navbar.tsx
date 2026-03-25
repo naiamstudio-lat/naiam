@@ -70,7 +70,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a
-          href="#"
+          href="/"
           style={{
             display: "flex",
             alignItems: "center",
@@ -79,7 +79,7 @@ export default function Navbar() {
           }}
         >
           <img
-            src="/Naiam Icon _ White.png"
+            src="/Naiam Icon _ Colour.png"
             alt="Naiam Icon"
             style={{
               width: 40,
@@ -129,75 +129,77 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          {/* Desktop CTA button */}
-          <a
-            href="#contacto"
-            style={{
-              backgroundColor: "#1a8a7d",
-              color: "#fff",
-              padding: "9px 22px",
-              borderRadius: 50,
-              fontSize: 14,
-              fontWeight: 600,
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              letterSpacing: "0.01em",
-              transition: "background-color 0.2s",
-            }}
-            className="hidden md:inline-block"
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#15706a")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1a8a7d")}
-          >
-            Hablar con nosotros
-          </a>
+        {/* Desktop CTA button */}
+        <a
+          href="https://wa.me/5493517873780?text=Hola%20Naiam%20Studio%2C%20vengo%20desde%20su%20sitio%20web%20y%20quiero%20hablar%20con%20ustedes."
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            backgroundColor: "#1a8a7d",
+            color: "#fff",
+            padding: "9px 22px",
+            borderRadius: 50,
+            fontSize: 14,
+            fontWeight: 600,
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            letterSpacing: "0.01em",
+            transition: "background-color 0.2s",
+            marginLeft: 16,
+            display: "none",
+          }}
+          className="hidden md:inline-block"
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#15706a")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1a8a7d")}
+        >
+          Hablar con nosotros
+        </a>
 
-          {/* Mobile hamburger menu */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden"
+        {/* Mobile hamburger menu */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden"
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: 5,
+          }}
+        >
+          <div
             style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: 0,
-              display: "flex",
-              flexDirection: "column",
-              gap: 5,
+              width: 24,
+              height: 2.5,
+              backgroundColor: "#2a3a5c",
+              borderRadius: 1,
+              transition: "all 0.3s",
+              transform: isMenuOpen ? "rotate(45deg) translateY(10px)" : "none",
             }}
-          >
-            <div
-              style={{
-                width: 24,
-                height: 2.5,
-                backgroundColor: "#2a3a5c",
-                borderRadius: 1,
-                transition: "all 0.3s",
-                transform: isMenuOpen ? "rotate(45deg) translateY(10px)" : "none",
-              }}
-            />
-            <div
-              style={{
-                width: 24,
-                height: 2.5,
-                backgroundColor: "#2a3a5c",
-                borderRadius: 1,
-                transition: "all 0.3s",
-                opacity: isMenuOpen ? 0 : 1,
-              }}
-            />
-            <div
-              style={{
-                width: 24,
-                height: 2.5,
-                backgroundColor: "#2a3a5c",
-                borderRadius: 1,
-                transition: "all 0.3s",
-                transform: isMenuOpen ? "rotate(-45deg) translateY(-10px)" : "none",
-              }}
-            />
-          </button>
-        </div>
+          />
+          <div
+            style={{
+              width: 24,
+              height: 2.5,
+              backgroundColor: "#2a3a5c",
+              borderRadius: 1,
+              transition: "all 0.3s",
+              opacity: isMenuOpen ? 0 : 1,
+            }}
+          />
+          <div
+            style={{
+              width: 24,
+              height: 2.5,
+              backgroundColor: "#2a3a5c",
+              borderRadius: 1,
+              transition: "all 0.3s",
+              transform: isMenuOpen ? "rotate(-45deg) translateY(-10px)" : "none",
+            }}
+          />
+        </button>
       </div>
 
       {/* Mobile menu */}
@@ -233,7 +235,9 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contacto"
+            href="https://wa.me/5493517873780?text=Hola%20Naiam%20Studio%2C%20vengo%20desde%20su%20sitio%20web%20y%20quiero%20hablar%20con%20ustedes."
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
             style={{
               padding: "12px 0",
