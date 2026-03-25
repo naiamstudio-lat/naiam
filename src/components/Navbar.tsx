@@ -131,7 +131,7 @@ export default function Navbar() {
 
         {/* Desktop CTA button */}
         <a
-          href="https://wa.me/5493517873780?text=Hola%20Naiam%20Studio%2C%20vengo%20desde%20su%20sitio%20web%20y%20quiero%20hablar%20con%20ustedes."
+          href="https://wa.me/5493517873780?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Naiam%20Studio%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n."
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -243,7 +243,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://wa.me/5493517873780?text=Hola%20Naiam%20Studio%2C%20vengo%20desde%20su%20sitio%20web%20y%20quiero%20hablar%20con%20ustedes."
+            href="https://wa.me/5493517873780?text=Hola%2C%20vengo%20desde%20la%20web%20de%20Naiam%20Studio%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMenuOpen(false)}
