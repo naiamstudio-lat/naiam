@@ -3,9 +3,6 @@ export default function Navbar() {
     { label: "Inicio", href: "#", active: true },
     { label: "Qué hacemos", href: "#que-hacemos" },
     { label: "Cómo trabajamos", href: "#como-trabajamos" },
-    { label: "Para quién es", href: "#para-quien" },
-    { label: "Quiénes somos", href: "#quienes-somos" },
-    { label: "Casos", href: "#casos" },
     { label: "Glosario", href: "/startup-glossary" },
   ];
 
