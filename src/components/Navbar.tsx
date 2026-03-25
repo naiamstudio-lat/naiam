@@ -6,6 +6,7 @@ export default function Navbar() {
     { label: "Para quién es", href: "#para-quien" },
     { label: "Quiénes somos", href: "#quienes-somos" },
     { label: "Casos", href: "#casos" },
+    { label: "Glosario", href: "/startup-glossary" },
   ];
 
   return (
