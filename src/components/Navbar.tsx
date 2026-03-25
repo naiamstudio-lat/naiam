@@ -168,6 +168,7 @@ export default function Navbar() {
             flexDirection: "column",
             gap: 5,
           }}
+          aria-label="Abrir menú"
         >
           <div
             style={{
@@ -200,6 +201,13 @@ export default function Navbar() {
             }}
           />
         </button>
+        <style>{`
+          @media (min-width: 768px) {
+            .md\\:hidden {
+              display: none !important;
+            }
+          }
+        `}</style>
       </div>
 
       {/* Mobile menu */}
