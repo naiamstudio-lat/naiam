@@ -8,9 +8,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Navan Studio – Validamos ideas de producto",
+  title: "Naiam Studio – Validamos ideas de producto",
   description:
     "Acompañamos a emprendedores y startups en sus primeros pasos: investigación, validación y creación de MVPs funcionales.",
+  icons: {
+    icon: "/Naiam Icon _ White.png",
+  },
 };
 
 export default function RootLayout({

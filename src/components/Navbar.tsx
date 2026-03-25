@@ -1,10 +1,50 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('Inicio');
+
   const links = [
-    { label: "Inicio", href: "#", active: true },
-    { label: "Qué hacemos", href: "#que-hacemos" },
-    { label: "Cómo trabajamos", href: "#como-trabajamos" },
-    { label: "Glosario", href: "/startup-glossary" },
+    { label: "Inicio", href: "#", id: "inicio" },
+    { label: "Qué hacemos", href: "#que-hacemos", id: "que-hacemos" },
+    { label: "Cómo trabajamos", href: "#como-trabajamos", id: "como-trabajamos" },
+    { label: "Glosario", href: "/startup-glossary", id: "glosario" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = links.filter(link => link.id !== 'glosario');
+      
+      for (let section of sections) {
+        const element = document.querySelector(section.href);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section.label);
+            return;
+          }
+        }
+      }
+      if (window.scrollY < 100) {
+        setActiveSection('Inicio');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isGlosaryPage = pathname === '/startup-glossary';
+
+  useEffect(() => {
+    if (isGlosaryPage) {
+      setActiveSection('Glosario');
+    }
+  }, [isGlosaryPage]);
 
   return (
     <nav
@@ -21,8 +61,8 @@ export default function Navbar() {
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 36px",
-          height: 64,
+          padding: "0 20px",
+          minHeight: 64,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -38,39 +78,17 @@ export default function Navbar() {
             textDecoration: "none",
           }}
         >
-          {/* SVG logo – stylised leaf/wave */}
-          <svg
-            width="40"
-            height="42"
-            viewBox="0 0 40 42"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 3C20 3 7 9 7 21C7 30 13 37 20 39C27 37 33 30 33 21C33 9 20 3 20 3Z"
-              fill="#1a8a7d"
-              opacity="0.15"
-            />
-            <path
-              d="M20 7C20 7 26 11 28 19C30 27 25 34 20 37"
-              stroke="#1a8a7d"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d="M20 7C20 7 14 11 12 19C10 27 15 34 20 37"
-              stroke="#2a3a5c"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              fill="none"
-              opacity="0.5"
-            />
-            <ellipse cx="20" cy="17" rx="2.5" ry="2" fill="#1a8a7d" opacity="0.6" />
-          </svg>
+          <img
+            src="/Naiam Icon _ White.png"
+            alt="Naiam Icon"
+            style={{
+              width: 40,
+              height: 40,
+            }}
+          />
           <span
             style={{
-              fontSize: 11.5,
+              fontSize: "clamp(10px, 2vw, 11.5px)",
               fontWeight: 700,
               letterSpacing: "0.14em",
               color: "#2a3a5c",
@@ -78,18 +96,20 @@ export default function Navbar() {
               lineHeight: 1.1,
             }}
           >
-            NAVAN STUDIO
+            NAIAM STUDIO
           </span>
         </a>
 
-        {/* Nav links */}
+        {/* Desktop Nav links */}
         <ul
           style={{
             display: "flex",
             alignItems: "center",
             gap: 30,
             listStyle: "none",
+            media: "(max-width: 768px)",
           }}
+          className="hidden md:flex"
         >
           {links.map((link) => (
             <li key={link.label}>
@@ -97,11 +117,11 @@ export default function Navbar() {
                 href={link.href}
                 style={{
                   fontSize: 14,
-                  fontWeight: link.active ? 600 : 400,
+                  fontWeight: activeSection === link.label ? 700 : 400,
                   color: "#2a3a5c",
                   textDecoration: "none",
-                  transition: "color 0.2s",
-                  opacity: link.active ? 1 : 0.75,
+                  transition: "all 0.2s",
+                  opacity: activeSection === link.label ? 1 : 0.75,
                 }}
               >
                 {link.label}
@@ -110,24 +130,158 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA button */}
-        <a
-          href="#contacto"
-          style={{
-            backgroundColor: "#1a8a7d",
-            color: "#fff",
-            padding: "9px 22px",
-            borderRadius: 50,
-            fontSize: 14,
-            fontWeight: 600,
-            textDecoration: "none",
-            whiteSpace: "nowrap",
-            letterSpacing: "0.01em",
-          }}
-        >
-          Hablar con nosotros
-        </a>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          {/* Desktop CTA button */}
+          <a
+            href="#contacto"
+            style={{
+              backgroundColor: "#1a8a7d",
+              color: "#fff",
+              padding: "9px 22px",
+              borderRadius: 50,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+              letterSpacing: "0.01em",
+              transition: "background-color 0.2s",
+            }}
+            className="hidden md:inline-block"
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#15706a")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1a8a7d")}
+          >
+            Hablar con nosotros
+          </a>
+
+          {/* Mobile hamburger menu */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden"
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              display: "flex",
+              flexDirection: "column",
+              gap: 5,
+            }}
+          >
+            <div
+              style={{
+                width: 24,
+                height: 2.5,
+                backgroundColor: "#2a3a5c",
+                borderRadius: 1,
+                transition: "all 0.3s",
+                transform: isMenuOpen ? "rotate(45deg) translateY(10px)" : "none",
+              }}
+            />
+            <div
+              style={{
+                width: 24,
+                height: 2.5,
+                backgroundColor: "#2a3a5c",
+                borderRadius: 1,
+                transition: "all 0.3s",
+                opacity: isMenuOpen ? 0 : 1,
+              }}
+            />
+            <div
+              style={{
+                width: 24,
+                height: 2.5,
+                backgroundColor: "#2a3a5c",
+                borderRadius: 1,
+                transition: "all 0.3s",
+                transform: isMenuOpen ? "rotate(-45deg) translateY(-10px)" : "none",
+              }}
+            />
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 0,
+            backgroundColor: "#fff",
+            borderTop: "1px solid rgba(44,181,160,0.08)",
+            padding: "16px 20px",
+            animation: "slideDown 0.3s ease-out",
+          }}
+          className="md:hidden"
+        >
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              style={{
+                padding: "12px 0",
+                fontSize: 14,
+                fontWeight: activeSection === link.label ? 700 : 400,
+                color: "#2a3a5c",
+                textDecoration: "none",
+                borderBottom: "1px solid rgba(44,181,160,0.08)",
+                opacity: activeSection === link.label ? 1 : 0.75,
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contacto"
+            onClick={() => setIsMenuOpen(false)}
+            style={{
+              padding: "12px 0",
+              backgroundColor: "#1a8a7d",
+              color: "#fff",
+              borderRadius: 50,
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: "none",
+              textAlign: "center",
+              marginTop: 8,
+              transition: "background-color 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#15706a")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1a8a7d")}
+          >
+            Hablar con nosotros
+          </a>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hidden {
+            display: none !important;
+          }
+          .md\\:flex {
+            display: flex;
+          }
+          .md\\:inline-block {
+            display: inline-block;
+          }
+          .md\\:hidden {
+            display: block;
+          }
+        }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </nav>
   );
 }
