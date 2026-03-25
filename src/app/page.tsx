@@ -1,6 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
+import QueHacemos from "@/components/QueHacemos";
+import ComoTrabajamos from "@/components/ComoTrabajamos";
+import Glosario from "@/components/Glosario";
 
 export default function Home() {
   return (
@@ -8,6 +11,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutSection />
+      <QueHacemos />
+      <ComoTrabajamos />
+      <Glosario />
     </main>
   );
 }
