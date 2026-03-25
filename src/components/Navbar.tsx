@@ -107,7 +107,6 @@ export default function Navbar() {
             alignItems: "center",
             gap: 30,
             listStyle: "none",
-            media: "(max-width: 768px)",
           }}
           className="hidden md:flex"
         >
