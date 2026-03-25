@@ -235,6 +235,46 @@ export default function Hero() {
           </span>
         </div>
       </div>
+
+      {/* Indicador de scroll */}
+      <div style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        bottom: 16,
+        display: "flex",
+        justifyContent: "center",
+        pointerEvents: "none",
+        zIndex: 2,
+      }}>
+        <a
+          href="#que-hacemos"
+          style={{
+            pointerEvents: "auto",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textDecoration: "none",
+            color: "#1a8a7d",
+            opacity: 0.85,
+            animation: "bounce 1.6s infinite",
+          }}
+          aria-label="Desplazar para ver más"
+        >
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 6V22" stroke="#1a8a7d" strokeWidth="2.2" strokeLinecap="round"/>
+            <path d="M8 16L14 22L20 16" stroke="#1a8a7d" strokeWidth="2.2" strokeLinecap="round"/>
+          </svg>
+          <span style={{ fontSize: 12, marginTop: 2 }}>Scroll</span>
+        </a>
+      </div>
+
+      <style>{`
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(10px); }
+        }
+      `}</style>
     </section>
   );
 }
