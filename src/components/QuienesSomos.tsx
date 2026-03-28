@@ -82,7 +82,7 @@ export default function QuienesSomos() {
                 lineHeight: 1.5,
               }}
             >
-              Combina desarrollo web con investigación de producto para crear MVPs y pruebas de concepto orientas a validar ideas en el mercado. Trabaja con metodologías Lean y Product Discovery para reducir el riesgo de construir productos sin demanda real.
+            Combina desarrollo de Software con investigación de producto y experiencia en Startups para crear MVPs, pruebas de concepto y estrategías orientas a validar ideas en el mercado. Trabaja con metodologías Lean y Product Discovery para reducir el riesgo de construir productos sin demanda real.
             </p>
           </div>
         </div>
