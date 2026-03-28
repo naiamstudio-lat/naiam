@@ -9,34 +9,54 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('Inicio');
 
   const links = [
-    { label: "Inicio", href: "#", id: "inicio" },
-    { label: "Qué hacemos", href: "#que-hacemos", id: "que-hacemos" },
-    { label: "Cómo trabajamos", href: "#como-trabajamos", id: "como-trabajamos" },
+    { label: "Inicio", href: "/", id: "inicio" },
+    { label: "Qué hacemos", href: "/#que-hacemos", id: "que-hacemos" },
+    { label: "Cómo trabajamos", href: "/#como-trabajamos", id: "como-trabajamos" },
     { label: "Glosario", href: "/startup-glossary", id: "glosario" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = links.filter(link => link.id !== 'glosario');
-      
-      for (let section of sections) {
-        const element = document.querySelector(section.href);
+      if (window.location.pathname !== "/") {
+        setActiveSection("");
+        return;
+      }
+      const sectionLinks = links.filter(link => link.id !== 'glosario' && link.href.includes('#'));
+      let found = false;
+      for (let section of sectionLinks) {
+        const hashIndex = section.href.indexOf('#');
+        if (hashIndex === -1) continue;
+        const id = section.href.slice(hashIndex + 1);
+        if (!id) continue;
+        const element = document.getElementById(id);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 120 && rect.bottom > 120) {
             setActiveSection(section.label);
-            return;
+            found = true;
+            break;
           }
         }
       }
-      if (window.scrollY < 100) {
+      if (!found) {
         setActiveSection('Inicio');
       }
     };
 
+    // Detectar hash al cargar la landing
+    if (typeof window !== 'undefined' && window.location.pathname === "/") {
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionLinks = links.filter(link => link.id !== 'glosario' && link.href.includes(hash));
+        if (sectionLinks.length > 0) {
+          setActiveSection(sectionLinks[0].label);
+        }
+      }
+    }
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [links]);
 
   const isGlosaryPage = pathname === '/startup-glossary';
 
@@ -116,11 +136,19 @@ export default function Navbar() {
                 href={link.href}
                 style={{
                   fontSize: 14,
-                  fontWeight: activeSection === link.label ? 700 : 400,
+                  fontWeight:
+                    (activeSection === link.label && pathname === "/") ||
+                    (link.label === "Glosario" && pathname === "/startup-glossary")
+                      ? 700
+                      : 400,
                   color: "#2a3a5c",
                   textDecoration: "none",
                   transition: "all 0.2s",
-                  opacity: activeSection === link.label ? 1 : 0.75,
+                  opacity:
+                    (activeSection === link.label && pathname === "/") ||
+                    (link.label === "Glosario" && pathname === "/startup-glossary")
+                      ? 1
+                      : 0.75,
                 }}
               >
                 {link.label}
