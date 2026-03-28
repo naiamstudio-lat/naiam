@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import QueHacemos from "@/components/QueHacemos";
 import ComoTrabajamos from "@/components/ComoTrabajamos";
+import QuienesSomos from "@/components/QuienesSomos";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <QueHacemos />
+
       <ComoTrabajamos />
+      <QuienesSomos />
 
       {/* CTA to glossary */}
       <section

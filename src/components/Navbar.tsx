@@ -12,11 +12,12 @@ export default function Navbar() {
     { label: "Inicio", href: "/", id: "inicio" },
     { label: "Qué hacemos", href: "/#que-hacemos", id: "que-hacemos" },
     { label: "Cómo trabajamos", href: "/#como-trabajamos", id: "como-trabajamos" },
+    { label: "Quiénes somos", href: "/#quienes-somos", id: "quienes-somos" },
     { label: "Glosario", href: "/startup-glossary", id: "glosario" },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
+    const updateActiveSection = () => {
       if (window.location.pathname !== "/") {
         setActiveSection("");
         return;
@@ -39,24 +40,29 @@ export default function Navbar() {
         }
       }
       if (!found) {
+        // Si hay hash, marcar la sección correspondiente
+        const hash = window.location.hash;
+        if (hash) {
+          const sectionLinks = links.filter(link => link.id !== 'glosario' && link.href.includes(hash));
+          if (sectionLinks.length > 0) {
+            setActiveSection(sectionLinks[0].label);
+            return;
+          }
+        }
         setActiveSection('Inicio');
       }
     };
 
-    // Detectar hash al cargar la landing
-    if (typeof window !== 'undefined' && window.location.pathname === "/") {
-      const hash = window.location.hash;
-      if (hash) {
-        const sectionLinks = links.filter(link => link.id !== 'glosario' && link.href.includes(hash));
-        if (sectionLinks.length > 0) {
-          setActiveSection(sectionLinks[0].label);
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [links]);
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection);
+    window.addEventListener('hashchange', updateActiveSection);
+    window.addEventListener('popstate', updateActiveSection);
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('hashchange', updateActiveSection);
+      window.removeEventListener('popstate', updateActiveSection);
+    };
+  }, [links, pathname]);
 
   const isGlosaryPage = pathname === '/startup-glossary';
 

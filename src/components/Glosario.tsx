@@ -365,7 +365,7 @@ function getStageLabel(id: StageId): string {
 
 /* ─── Component ─── */
 export default function Glosario() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeStage, setActiveStage] = useState<StageId | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -693,7 +693,7 @@ export default function Glosario() {
         {/* Cards */}
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {filteredTerms.map((item, i) => {
-            const isOpen = openIndex === i;
+              const isOpen = openIndexes.includes(i);
             return (
               <div
                 key={item.term}
@@ -707,7 +707,11 @@ export default function Glosario() {
                 }}
               >
                 <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                    onClick={() => {
+                      setOpenIndexes((prev) =>
+                        isOpen ? prev.filter((idx) => idx !== i) : [...prev, i]
+                      );
+                    }}
                   style={{
                     width: "100%",
                     display: "flex",
