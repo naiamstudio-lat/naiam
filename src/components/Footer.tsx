@@ -180,7 +180,9 @@ export default function Footer() {
               ¿Tienes una idea que validar? Hablemos.
             </p>
             <a
-              href="#contacto"
+              href="https://wa.me/5493517873780"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "inline-block",
                 backgroundColor: "#1a8a7d",
@@ -221,41 +223,6 @@ export default function Footer() {
           >
             © 2026 Naiam Studio. Todos los derechos reservados.
           </p>
-          <div
-            style={{
-              display: "flex",
-              gap: 20,
-            }}
-          >
-            <a
-              href="#"
-              style={{
-                fontSize: 12,
-                color: "#fff",
-                textDecoration: "none",
-                opacity: 0.6,
-                transition: "opacity 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
-            >
-              Privacidad
-            </a>
-            <a
-              href="#"
-              style={{
-                fontSize: 12,
-                color: "#fff",
-                textDecoration: "none",
-                opacity: 0.6,
-                transition: "opacity 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
-            >
-              Términos
-            </a>
-          </div>
         </div>
       </div>
     </footer>

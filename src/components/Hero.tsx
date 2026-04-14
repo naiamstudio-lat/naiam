@@ -150,7 +150,9 @@ export default function Hero() {
           }}
         >
           <a
-            href="#contacto"
+            href="https://wa.me/5493517873780"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               backgroundColor: "#1a8a7d",
               color: "#fff",
@@ -231,11 +233,12 @@ export default function Hero() {
               letterSpacing: "0.005em",
             }}
           >
-            Desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y posicionamiento
+            Desarrollo de MVPs&nbsp;&nbsp;|&nbsp;&nbsp;Investigación
+            de producto&nbsp;&nbsp;|&nbsp;&nbsp;Estrategia digital y
+            posicionamiento
           </span>
         </div>
       </div>
-
     </section>
   );
 }
